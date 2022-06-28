@@ -121,8 +121,10 @@ function remove(btn){
 
     //!diziden silme
     sepettekiler = sepettekiler.filter((ürün) => ürün.name != btn.closest('.card').querySelector('h5').textContent);
+    hesaplaCardTotal();
 }
-// console.log(sepettekiler);
+console.log(sepettekiler);
+
 
 function piecebuton(){
     document.querySelectorAll('.adet-controller').forEach((sayi)=>{
@@ -140,6 +142,7 @@ function piecebuton(){
                }
             adet1.closest(".row").querySelector(".ürün-toplam").textContent =
             (adet1.closest(".row").querySelector(".indirim-price").textContent*adet1.textContent).toFixed(2)
+            hesaplaCardTotal();
         }
         const plus=sayi.lastElementChild
         plus.onclick=()=>{adet1.textContent=Number(adet1.textContent)+1;
